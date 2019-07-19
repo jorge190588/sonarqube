@@ -1,6 +1,6 @@
 FROM openjdk:8-alpine
 
-ENV SONAR_VERSION=6.7.1 \
+ENV SONAR_VERSION=6.7.5 \
     SONARQUBE_HOME=/opt/sonarqube \
     # Database configuration
     # Defaults to using H2
@@ -25,16 +25,18 @@ RUN set -x \
     # sub 2048R/06855C1D 2015-05-25
 RUN gpg --keyserver ha.pool.sks-keyservers.net --recv-keys F1182E81C792928921DBCAB4CFCA4A29D26468DE 
 
-RUN mkdir /opt \
-    && cd /opt \
-    && wget -O sonarqube.zip --no-verbose https://sonarsource.bintray.com/Distribution/sonarqube/sonarqube-$SONAR_VERSION.zip \
-    && wget -O sonarqube.zip.asc --no-verbose https://sonarsource.bintray.com/Distribution/sonarqube/sonarqube-$SONAR_VERSION.zip.asc \
-    && gpg --batch --verify sonarqube.zip.asc sonarqube.zip \
-    && unzip sonarqube.zip \
-    && mv sonarqube-$SONAR_VERSION sonarqube \
-    && chown -R sonarqube:sonarqube sonarqube \
-    && rm sonarqube.zip* \
-    && rm -rf $SONARQUBE_HOME/bin/*
+#RUN mkdir /opt \
+RUN cd /opt 
+RUN wget -O sonarqube.zip --no-verbose https\://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-$SONAR_VERSION.zip 
+RUN wget -O sonarqube.zip.asc --no-verbose https\://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-$SONAR_VERSION.zip.asc 
+RUN gpg --batch --verify sonarqube.zip.asc sonarqube.zip 
+RUN unzip sonarqube.zip 
+RUN mv sonarqube-$SONAR_VERSION sonarqube 
+RUN chown -R sonarqube:sonarqube sonarqube 
+RUN rm sonarqube.zip* 
+RUN rm -rf $SONARQUBE_HOME/bin/*
+
+
 
 VOLUME "$SONARQUBE_HOME/data"
 
