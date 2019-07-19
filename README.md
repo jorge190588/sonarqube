@@ -19,6 +19,8 @@ http://192.168.99.100:9000
 # Run analysis
 
 ## 1. Download maven mvn
+[apache-maven-3.6.1-bin.zip](https://maven.apache.org/download.cgi)
+
 
 
 # References
