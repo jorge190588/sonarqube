@@ -38,11 +38,18 @@ http://192.168.99.100:9000
 6. unzip sonar-scanner-cli-4.2.0.1873-linux.zip
 7. mv sonar-scanner-4.2.0.1873-linux /opt/sonar-scanner
 
-# Run analysis with sonnar scanner
+# Run analysis with sonnar scanner in windows
 
-* Windows  - web : "c:\Users\Usuario\Documents\programas\sonar-scanner-cli-4.6.0.2311-windows\bin\sonar-scanner" -Dsonar.projectKey=ae58474eed52f94699cab87b8c9baae1151e6a83 -Dsonar.host.url=http://localhost:9000  -Dsonar.java.binaries=node_modules -Dsonar.projectName=tse_internal_web
+* Web : "c:\Users\Usuario\Documents\programas\sonar-scanner-cli-4.6.0.2311-windows\bin\sonar-scanner" -Dsonar.projectKey=ae58474eed52f94699cab87b8c9baae1151e6a83 -Dsonar.host.url=http://localhost:9000  -Dsonar.java.binaries=node_modules -Dsonar.projectName=tse_internal_web
 
-* Windows - API in java: "c:\Users\Usuario\Documents\programas\sonar-scanner-cli-4.6.0.2311-windows\bin\sonar-scanner" -Dsonar.projectKey=ae58474eed52f94699cab87b8c9baae1151e6a83 -Dsonar.host.url=http://localhost:9000 -Dsonar.java.binaries=target -Dsonar.projectName=tse_internal_backend
+* API in java: "c:\Users\Usuario\Documents\programas\sonar-scanner-cli-4.6.0.2311-windows\bin\sonar-scanner" -Dsonar.projectKey=ae58474eed52f94699cab87b8c9baae1151e6a83 -Dsonar.host.url=http://localhost:9000 -Dsonar.java.binaries=target -Dsonar.projectName=tse_internal_backend
+
+
+# Run analysis with sonnar scanner in linux
+
+* Web : "/var/opt/sonar-scanner-4.2.0.1873-linux/bin/sonar-scanner" -Dsonar.projectKey=fe092d7ac94e4d2c6562731015e574e026f992b6 -Dsonar.host.url=http://localhost:5010  -Dsonar.java.binaries=node_modules -Dsonar.projectName=tse_internal_web
+
+* API in java: /home/developer/tse_internal_backend# "/var/opt/sonar-scanner-4.2.0.1873-linux/bin/sonar-scanner" -Dsonar.projectKey=fe092d7ac94e4d2c6562731015e574e026f992b6 -Dsonar.host.url=http://localhost:5010 -Dsonar.coverage.exclusions=.git -Dsonar.java.binaries=.git -Dsonar.sources=src -Dsonar.projectName=tse_internal_backend -X
 
 # References
 * [Sonnar scanner Windows 64-bit](https://docs.sonarqube.org/latest/analysis/scan/sonarscanner/)
