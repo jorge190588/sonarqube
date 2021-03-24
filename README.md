@@ -47,5 +47,6 @@ http://192.168.99.100:9000
 # References
 * [Sonnar scanner Windows 64-bit](https://docs.sonarqube.org/latest/analysis/scan/sonarscanner/)
 * [Sonnar scanner linux](https://techexpert.tips/sonarqube/sonarqube-scanner-installation-ubuntu-linux/)
+* [sonnar scanner linux as service](https://www.digitalocean.com/community/tutorials/how-to-ensure-code-quality-with-sonarqube-on-ubuntu-18-04)
 * [Sonnar scanner documentario](https://docs.sonarqube.org/latest/analysis/analysis-parameters/)
 * [Docker compose reference](https://gist.github.com/Warchant/0d0f0104fe7adf3b310937d2db67b512)
