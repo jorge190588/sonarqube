@@ -6,7 +6,7 @@ services:
     container_name: sonarqube_web
     hostname: sonarqube_web
     ports:
-      - 9000:9000
+      - 5010:9000
     environment:
       - sonar.jdbc.username=sonar
       - sonar.jdbc.password=sonar
