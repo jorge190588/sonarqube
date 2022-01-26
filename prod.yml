@@ -1,0 +1,41 @@
+version: "3"
+
+services:
+  sonarqube_prod_web:
+    image: sonarqube:8.9.1-community
+    container_name: sonarqube_prod_web
+    hostname: sonarqube_prod_web
+    restart: unless-stopped
+    ports:
+      - 5010:9000
+    environment:
+      - sonar.jdbc.username=sonar
+      - sonar.jdbc.password=sonar
+      - sonar.search.javaAdditionalOpts=-Dbootstrap.system_call_filter=false
+    volumes:
+      - "./logs_prod:/opt/sonarqube/logs"
+      - "./data_prod:/opt/sonarqube/data"
+      - "./extensions_prod:/opt/sonarqube/extensions"
+
+  sonarqube_prod_db:
+    image: postgres:13.1
+    container_name: sonarqube_prod_db
+    hostname: sonarqube_prod_db
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=sonar
+      - POSTGRES_PASSWORD=sonar
+      - POSTGRESQL_DATABASE=comunity
+    volumes:
+      - pg_prod_db:/var/lib/postgresql
+      - pg_prod_data:/var/lib/postgresql/data
+    ulimits:
+      nofile:
+        soft: 65536
+        hard: 65536
+
+volumes:
+  pg_prod_db:
+    driver: local
+  pg_prod_data:
+    driver: local

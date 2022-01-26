@@ -1,0 +1,39 @@
+version: "3"
+
+services:
+  sonarqube_dev_web:
+    image: sonarqube:8.9.1-developer
+    container_name: sonarqube_dev_web
+    hostname: sonarqube_dev_web
+    ports:
+      - 5010:9000
+    environment:
+      - sonar.jdbc.username=sonar
+      - sonar.jdbc.password=sonar
+      - sonar.search.javaAdditionalOpts=-Dbootstrap.system_call_filter=false
+    volumes:
+      - "./logs_dev:/opt/sonarqube/logs"
+      - "./data_dev:/opt/sonarqube/data"
+      - "./extensions_dev:/opt/sonarqube/extensions"
+
+  sonarqube_dev_db:
+    image: postgres:13.1
+    container_name: sonarqube_dev_db
+    hostname: sonarqube_dev_db
+    environment:
+      - POSTGRES_USER=sonar
+      - POSTGRES_PASSWORD=sonar
+      - POSTGRESQL_DATABASE=developer
+    volumes:
+      - pg_dev_db:/var/lib/postgresql
+      - pg_dev_data:/var/lib/postgresql/data
+    ulimits:
+      nofile:
+        soft: 65536
+        hard: 65536
+
+volumes:
+  pg_dev_db:
+    driver: local
+  pg_dev_data:
+    driver: local
