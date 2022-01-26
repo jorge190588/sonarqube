@@ -38,6 +38,10 @@ http://192.168.99.100:9000
 6. unzip sonar-scanner-cli-4.2.0.1873-linux.zip
 7. mv sonar-scanner-4.2.0.1873-linux /opt/sonar-scanner
 
+# Folders for environments
+1. DEV: data_dev, logs_dev, extensions_dev
+2. PROD: data_prod, logs_prod, extensions_prod
+
 # Run analysis with sonnar scanner in windows
 
 * Web : "c:\Users\Usuario\Documents\programas\sonar-scanner-cli-4.6.0.2311-windows\bin\sonar-scanner" -Dsonar.projectKey=ae58474eed52f94699cab87b8c9baae1151e6a83 -Dsonar.host.url=http://localhost:9000  -Dsonar.java.binaries=node_modules -Dsonar.projectName=tse_internal_web
